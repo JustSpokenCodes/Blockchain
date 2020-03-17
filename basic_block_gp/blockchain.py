@@ -31,11 +31,17 @@ class Blockchain(object):
         """
 
         block = {
-            # TODO
+            'index': len(self.chain) + 1,
+            'timestamp': time(),
+            'transactions': self.current_transactions,
+            'proof': proof,
+            'previous_hash': previous_hash,
         }
 
         # Reset the current list of transactions
+        self.current_transactions = []
         # Append the chain to the block
+        self.chain.append(block)
         # Return the new block
         pass
 
@@ -56,8 +62,11 @@ class Blockchain(object):
         # or we'll have inconsistent hashes
 
         # TODO: Create the block_string
+        block_string = json.dumps(block, sort_keys=True)
+        string_in_bytes = block_string.encode()
 
         # TODO: Hash this string using sha256
+        raw_hash = hashlib.sha256(block_string)
 
         # By itself, the sha256 function returns the hash in a raw string
         # that will likely include escaped characters.
