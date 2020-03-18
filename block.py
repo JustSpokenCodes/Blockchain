@@ -15,7 +15,7 @@ chain = [
 {index, timestamp, transactions: [
 {sender: tim, amount: 10, recipient: Brey},
 ], prevHash, proof},
-{index, timestamp, transactions: [], prevHash, proof},
+{index, timestamp, transactions: [], prevHash, proof}, 
 ]
 
-
+hash({proof}{prevHash}) --> hash with a pattern!!
