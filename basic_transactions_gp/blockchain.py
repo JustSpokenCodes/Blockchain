@@ -11,6 +11,8 @@ class Blockchain(object):
         self.current_transactions = []
 
         self.new_block(previous_hash=1, proof=100)
+    
+    def new_transaction(self):
 
     def new_block(self, proof, previous_hash=None):
 
